@@ -3,6 +3,7 @@ package controller;
 import model.Album;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import service.AlbumService;
 
@@ -39,7 +40,12 @@ public class AlbumController {
         return albumService.updateAlbum(id, albumDetails);
 
     }
-
+    @GetMapping("/list")
+    public String getAllAlbums(Model model) {
+        List<Album> albums = albumService.getAllAlbums();
+        model.addAttribute("albums", albums);
+        return "index";
+    }
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAlbum(@PathVariable Long id) {
         albumService.deleteAlbum(id);

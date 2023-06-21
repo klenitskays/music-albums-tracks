@@ -8,24 +8,19 @@ public class Track {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    public Integer id;
 
-    private String title;
+    public String title;
 
-    private String artist;
+    public String artist;
 
-    private Integer duration;
+    public Integer duration;
 
-    private Integer trackNumber;
+    public Integer trackNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "id", nullable = false)
-    private Album album;
+    @ManyToOne(fetch = FetchType.LAZY)
+    public Album album;
 
-    // Конструкторы, геттеры и сеттеры
-    public void setId(Integer id) {
-        this.id = id;
-    }
     public void setTitle(String title) {
         this.title = title;
     }
@@ -41,9 +36,7 @@ public class Track {
     public void setAlbum(Album album) {
         this.album = album;
     }
-    public Integer getId() {
-        return id;
-    }
+
     public String getTitle() {
         return title;
     }
