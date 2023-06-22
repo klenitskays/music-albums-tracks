@@ -19,6 +19,7 @@ public class AlbumService {
     }
 
     public List<Album> getAllAlbums() {
+
         return albumRepository.findAll();
     }
 
@@ -27,6 +28,7 @@ public class AlbumService {
     }
 
     public Album createAlbum(Album album) {
+
         return albumRepository.save(album);
     }
 

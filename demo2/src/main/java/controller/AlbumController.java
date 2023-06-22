@@ -20,10 +20,10 @@ public class AlbumController {
         this.albumService = albumService;
     }
 
-    @GetMapping("/")
+   /* @GetMapping("/")
     public List<Album> getAllAlbums() {
         return albumService.getAllAlbums();
-    }
+    }*/
 
     @GetMapping("/{id}")
     public Album getAlbumById(@PathVariable Long id) {
@@ -40,7 +40,7 @@ public class AlbumController {
         return albumService.updateAlbum(id, albumDetails);
 
     }
-    @GetMapping("/list")
+    @GetMapping("/index")
     public String getAllAlbums(Model model) {
         List<Album> albums = albumService.getAllAlbums();
         model.addAttribute("albums", albums);

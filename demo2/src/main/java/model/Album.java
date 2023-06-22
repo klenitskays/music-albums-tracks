@@ -11,7 +11,7 @@ public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+private Long id;
 
     public String title;
 
@@ -22,6 +22,10 @@ public class Album {
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Track> tracks;
     // Конструкторы, геттеры и сеттеры
+    public void setAId(Long id) {
+        this.id = id;
+    }
+
     public void setArtist(String artist) {
         this.artist = artist;
     }
@@ -31,6 +35,10 @@ public class Album {
     public void setYear(Integer year) {
         this.year = year;
     }
+    public Long getId() {
+        return id;
+    }
+
     public String getTitle() {
         return title;
     }

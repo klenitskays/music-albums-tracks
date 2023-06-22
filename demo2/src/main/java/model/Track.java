@@ -8,7 +8,7 @@ public class Track {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
+    public Long id;
 
     public String title;
 
@@ -20,6 +20,9 @@ public class Track {
 
     @ManyToOne(fetch = FetchType.LAZY)
     public Album album;
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public void setTitle(String title) {
         this.title = title;
@@ -35,6 +38,9 @@ public class Track {
     }
     public void setAlbum(Album album) {
         this.album = album;
+    }
+    public Long getId() {
+        return id;
     }
 
     public String getTitle() {

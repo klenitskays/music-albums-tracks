@@ -19,6 +19,7 @@ public class TrackService {
     }
 
     public List<Track> getAllTracks() {
+
         return trackRepository.findAll();
     }
 
@@ -27,6 +28,7 @@ public class TrackService {
     }
 
     public Track createTrack(Track track) {
+
         return trackRepository.save(track);
     }
 
